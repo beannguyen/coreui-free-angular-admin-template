@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
-
-import { DashboardComponent } from './dashboard.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { DashboardComponent } from './dashboard.component';
+import { BrokerComponent } from './broker/broker/broker.component';
+import { BrokerService } from '../../_services/broker.service';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 
 @NgModule({
   imports: [
@@ -13,8 +16,10 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     DashboardRoutingModule,
     ChartsModule,
     BsDropdownModule,
-    ButtonsModule.forRoot()
+    ButtonsModule.forRoot(),
+    ModalModule.forRoot()
   ],
-  declarations: [ DashboardComponent ]
+  declarations: [DashboardComponent, BrokerComponent],
+  providers: [BrokerService]
 })
 export class DashboardModule { }
